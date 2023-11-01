@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/HomeBackground"
+    android:orientation="vertical"
+    tools:context=".MedaxilFragment">
+
+    <LinearLayout
+        android:id="@+id/HeadLinear"
+        android:layout_width="411dp"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/Sekil"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/stock"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.ImageView.Circle"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/anbar_sat"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        app:layout_constraintTop_toBottomOf="@id/HeadLinear">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/custom_bottom"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            app:layout_constraintTop_toBottomOf="@id/HeadLinear">
+
+            <TextView
+                android:id="@+id/lblAlinmaTarixi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="74dp"
+                android:text="Alınma Tarixi :"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/button"
+                app:layout_constraintEnd_toStartOf="@+id/txtAlinmaTarixi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblFirmaAdi" />
+
+            <EditText
+                android:id="@+id/txtBarcode"
+                android:layout_width="170dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="15dp"
+                android:textSize="20sp"
+                android:ems="10"
+                android:hint="Barcode..."
+                android:inputType="number|numberDecimal"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/txtFirmaAdi"
+                app:layout_constraintStart_toEndOf="@+id/lblBarcode"
+                app:layout_constraintTop_toBottomOf="@+id/txtSatisQiymeti" />
+
+            <TextView
+                android:id="@+id/lblBarcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="62dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="30dp"
+                android:text="Barcode :"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/lblFirmaAdi"
+                app:layout_constraintEnd_toStartOf="@+id/txtBarcode"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/lblBasliq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="Mədaxil"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/txtMalinAdi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="39dp"
+                android:text="Sayı :"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView4"
+                app:layout_constraintEnd_toStartOf="@+id/txtSayi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblMalinAdi" />
+
+            <EditText
+                android:id="@+id/txtSayi"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:textSize="20sp"
+                android:ems="10"
+                android:hint="Sayı..."
+                android:inputType="number|numberSigned"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/txtAlisQiymeti"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/txtMalinAdi" />
+
+            <EditText
+                android:id="@+id/txtSatisQiymeti"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:textSize="20sp"
+                android:ems="10"
+                android:hint="Satış qiyməti..."
+                android:inputType="number|numberDecimal"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/txtBarcode"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView5"
+                app:layout_constraintTop_toBottomOf="@+id/txtAlisQiymeti" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="30dp"
+                android:text="Satış qiyməti :"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/lblBarcode"
+                app:layout_constraintEnd_toStartOf="@+id/txtSatisQiymeti"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="33dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="31dp"
+                android:text="Alış qiyməti :"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView5"
+                app:layout_constraintEnd_toStartOf="@+id/txtAlisQiymeti"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <EditText
+                android:id="@+id/txtAlisQiymeti"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:textSize="20sp"
+                android:ems="10"
+                android:hint="Alış qiyməti..."
+                android:inputType="number|numberDecimal"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/txtSatisQiymeti"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/txtSayi" />
+
+            <EditText
+                android:id="@+id/txtMalinAdi"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="16dp"
+                android:textSize="20sp"
+                android:ems="10"
+                android:hint="Malın adı..."
+                android:inputType="text"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/txtSayi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lblMalinAdi"
+                app:layout_constraintTop_toBottomOf="@+id/lblBasliq" />
+
+            <TextView
+                android:id="@+id/lblMalinAdi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="33dp"
+                android:text="Malın adı :"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView3"
+                app:layout_constraintEnd_toStartOf="@+id/txtMalinAdi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/lblFirmaAdi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="53dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="30dp"
+                android:text="Firma adı :"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/lblAlinmaTarixi"
+                app:layout_constraintEnd_toStartOf="@+id/txtFirmaAdi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblBarcode" />
+
+            <EditText
+                android:id="@+id/txtFirmaAdi"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="15dp"
+                android:textSize="20sp"
+                android:ems="10"
+                android:hint="Firma adı..."
+                android:inputType="text"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/txtAlinmaTarixi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lblFirmaAdi"
+                app:layout_constraintTop_toBottomOf="@+id/txtBarcode" />
+
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="220dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="86dp"
+                android:layout_marginEnd="85dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/HomeBackground"
+                android:text="Daxil et"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lblOlcuVahidi"
+                app:layout_constraintTop_toBottomOf="@+id/lblOlcuVahidi" />
+
+            <EditText
+                android:id="@+id/txtAlinmaTarixi"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="68dp"
+                android:textSize="20sp"
+                android:ems="10"
+                android:hint="Alinma Tarixi..."
+                android:inputType="date"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lblAlinmaTarixi"
+                app:layout_constraintTop_toBottomOf="@+id/txtFirmaAdi" />
+
+
+            <TextView
+                android:id="@+id/lblOlcuVahidi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/olcu_vahidi"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/spinner"
+                app:layout_constraintTop_toBottomOf="@+id/lblAlinmaTarixi" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="230dp"
+                android:layout_height="39dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtAlinmaTarixi" />
+
+            <ImageView
+                android:id="@+id/IVQRScanner"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/baseline_qr_code_scanner_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtBarcode"
+                app:layout_constraintTop_toBottomOf="@+id/txtSatisQiymeti" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</LinearLayout>

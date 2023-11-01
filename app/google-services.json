@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "605204674756",
+    "firebase_url": "https://dbanbaryeni-b2572-default-rtdb.firebaseio.com",
+    "project_id": "dbanbaryeni-b2572",
+    "storage_bucket": "dbanbaryeni-b2572.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605204674756:android:8e5f23e5fb1183521df191",
+        "android_client_info": {
+          "package_name": "com.nexis.anbar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_Mg_BquqEG0DbpSsDHiq7_USHGPAdd10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

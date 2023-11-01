@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="HomeBackground">#5650F3</color>
+    <color name="btnBackground">#5650F3</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="LinerH">#00E5FF</color>
+    <color name="LinerHeader">#00E676</color>
+    <color name="Scroll">#E31C72</color>
+    <color name="btn">#009688</color>
+    <color name="ColorVertikal">#F889AF</color>
+    <color name="ColorEvTapsirigi4">#00E5FF</color>
+    <color name="ColorMesaj">#03AE0A</color>
+    <color name="ColorBack">#2B559C</color>
+    <color name="textColorHint">#00BCD4</color>
+    <color name="cofTextColor">#FF5722</color>
+    <color name="bgColorFrameLayout">#A5F69F</color>
+    <color name="bgColorLinearLayuot">#4CAF50</color>
+    <color name="imageBG">#0E9C8F</color>
+    <color name="LinearBG">#4CAF50</color>
+    <color name="Basliq">#3F51B5</color>
+    <color name="Icerik">#BA234E</color>
+    <color name="BGMain">#BD9456</color>
+    <color name="BG">#FFC107</color>
+    <color name="ColorLinearHorizontal">#AEC595</color>
+    <color name="ColorLinearVertical">#C5A577</color>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="130dp"
+        android:id="@+id/UserSekil"
+        android:layout_height="130dp"/>
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="249dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@color/LinearBG"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_height="130dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/txtBasliq"
+            android:text="Basliq"
+            android:textSize="25sp"
+            android:layout_gravity="center"
+            android:textColor="@color/Basliq"
+            android:layout_marginBottom="15dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/txtIcerik"
+            android:text="Icerik"
+            android:textColor="@color/Icerik"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/HomeBackground"
+    android:orientation="vertical"
+    tools:context=".HomeFragment">
+
+
+    <LinearLayout
+        android:id="@+id/HeadLinear"
+        android:layout_width="411dp"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/Sekil"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/stock"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.ImageView.Circle"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Anbar, satış"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/clBottom"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:background="@drawable/custom_bottom"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/HeadLinear"
+        tools:layout_editor_absoluteY="202dp">
+
+        <TextView
+            android:id="@+id/lblTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="15dp"
+            android:text="Daxil ol"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TIL2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/textinputlayout_background"
+            android:gravity="center"
+            android:textColorHint="@color/textColorHint"
+            app:counterEnabled="true"
+            app:counterMaxLength="55"
+            app:counterOverflowTextColor="@color/cofTextColor"
+            app:counterTextColor="@color/textColorHint"
+            app:errorEnabled="true"
+            app:helperText="@string/helperTextEmail"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/textColorHint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmailQ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/edittextbackground"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TIL6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/textinputlayout_background"
+            android:gravity="center"
+            android:textColorHint="@color/textColorHint"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:counterOverflowTextColor="@color/cofTextColor"
+            app:counterTextColor="@color/textColorHint"
+            app:errorEnabled="true"
+            app:helperText="@string/helperTextParol"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/textColorHint"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/parol"
+                android:inputType="textPassword"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="51dp"
+            android:text="Daxil ol"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/HomeBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TIL6" />
+
+        <TextView
+            android:id="@+id/txtYeniQeydiyyat"
+            android:layout_gravity="center"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:text="Yeni istifadəçilər Qeydiyyatdan keçməlidirlər..."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+<!--        <Button-->
+<!--            android:id="@+id/btnQeydiyyat"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:text="@string/qeydiyyat"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:backgroundTint="@color/HomeBackground"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />-->
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navgraph"
+    app:startDestination="@id/homeFragment2">
+
+    <fragment
+        android:id="@+id/homPageFragment2"
+        android:name="com.nexis.anbar.HomPageFragment"
+        android:label="fragment_hom_page"
+        tools:layout="@layout/fragment_hom_page" >
+        <action
+            android:id="@+id/action_homPageFragment2_to_homeFragment2"
+            app:destination="@id/homeFragment2"
+            app:popUpTo="@id/homPageFragment2"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homPageFragment2_to_medaxilFragment2"
+            app:destination="@id/medaxilFragment2" />
+        <action
+            android:id="@+id/action_homPageFragment2_to_qaliqFragment"
+            app:destination="@id/qaliqFragment" />
+        <action
+            android:id="@+id/action_homPageFragment2_to_kinoFragment"
+            app:destination="@id/kinoFragment" />
+        <action
+            android:id="@+id/action_homPageFragment2_to_valyutaFragment"
+            app:destination="@id/valyutaFragment" />
+        <action
+            android:id="@+id/action_homPageFragment2_to_qeydiyyatListFragment"
+            app:destination="@id/qeydiyyatListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.nexis.anbar.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment2_to_qeydiyyatFragment2"
+            app:destination="@id/qeydiyyatFragment2" />
+        <action
+            android:id="@+id/action_homeFragment2_to_homPageFragment2"
+            app:destination="@id/homPageFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/qeydiyyatFragment2"
+        android:name="com.nexis.anbar.QeydiyyatFragment"
+        android:label="fragment_qeydiyyat"
+        tools:layout="@layout/fragment_qeydiyyat" >
+        <action
+            android:id="@+id/action_qeydiyyatFragment2_to_homeFragment2"
+            app:destination="@id/homeFragment2"
+            app:popUpTo="@id/qeydiyyatFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/medaxilFragment2"
+        android:name="com.nexis.anbar.MedaxilFragment"
+        android:label="fragment_medaxil"
+        tools:layout="@layout/fragment_medaxil" >
+        <action
+            android:id="@+id/action_medaxilFragment2_to_homPageFragment2"
+            app:destination="@id/homPageFragment2"
+            app:popUpTo="@id/medaxilFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/qaliqFragment"
+        android:name="com.nexis.anbar.QaliqFragment"
+        android:label="fragment_qaliq"
+        tools:layout="@layout/fragment_qaliq" >
+        <action
+            android:id="@+id/action_qaliqFragment_to_homPageFragment2"
+            app:destination="@id/homPageFragment2"
+            app:popUpTo="@id/qaliqFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/kinoFragment"
+        android:name="com.nexis.anbar.KinoFragment"
+        android:label="fragment_kino"
+        tools:layout="@layout/fragment_kino" >
+        <action
+            android:id="@+id/action_kinoFragment_to_homPageFragment2"
+            app:destination="@id/homPageFragment2"
+            app:popUpTo="@id/kinoFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_kinoFragment_to_kinoFragmentEtrafli"
+            app:destination="@id/kinoFragmentEtrafli" />
+    </fragment>
+    <fragment
+        android:id="@+id/kinoFragmentEtrafli"
+        android:name="com.nexis.anbar.KinoFragmentEtrafli"
+        android:label="fragment_kino_etrafli"
+        tools:layout="@layout/fragment_kino_etrafli" >
+        <action
+            android:id="@+id/action_kinoFragmentEtrafli_to_kinoFragment"
+            app:destination="@id/kinoFragment"
+            app:popUpTo="@id/kinoFragmentEtrafli"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/valyutaFragment"
+        android:name="com.nexis.anbar.ValyutaFragment"
+        android:label="fragment_valyuta"
+        tools:layout="@layout/fragment_valyuta" >
+        <action
+            android:id="@+id/action_valyutaFragment_to_homPageFragment2"
+            app:destination="@id/homPageFragment2"
+            app:popUpTo="@id/valyutaFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/qeydiyyatListFragment"
+        android:name="com.nexis.anbar.QeydiyyatListFragment"
+        android:label="fragment_qeydiyyat_list"
+        tools:layout="@layout/fragment_qeydiyyat_list" >
+        <action
+            android:id="@+id/action_qeydiyyatListFragment_to_homPageFragment2"
+            app:destination="@id/homPageFragment2"
+            app:popUpTo="@id/qeydiyyatListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

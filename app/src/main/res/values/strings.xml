@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Anbar</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="Gender">
+        <item>Kişi</item>
+        <item>Qadın</item>
+    </string-array>
+    <string name="user_name">İstifadəçi adınız...</string>
+    <string name="Adiniz">Adınız...</string>
+    <string name="Soyadiniz">Soyadınız...</string>
+    <string name="Ata_adi">Ata adınız...</string>
+    <string name="email">Email...</string>
+    <string name="nomre">Nömrəniz...</string>
+    <string name="cinsi">Cinsiniz...</string>
+    <string name="tarix">Doğum tarixiniz...</string>
+    <string name="parol">Gizli şifrəniz...</string>
+    <string name="helperText">Nümunə: test405@</string>
+    <string name="helperTextAdi">Nümunə: Test</string>
+    <string name="helperTextEmail">Nümunə: orxan.qurbanov1986@gmail.com</string>
+    <string name="helperTextNomre">Nümunə: +994777228828</string>
+    <string name="helperTextCinsi">Nümunə: Kişi, Qadın</string>
+    <string name="helperTextTarix">Nümunə: 01.01.2023</string>
+    <string name="helperTextParol">Nümunə: Laser405@</string>
+
+    <string name="olcu">30sp</string>
+    <string name="reng">#FFFFFF</string>
+    <string name="xeta">#F10505</string>
+    <string name="btnName">Satış</string>
+    <string name="qeydiyyat">Qeydiyyat</string>
+    <string name="anbar_sat">Anbar, satış</string>
+    <string name="olcu_vahidi">Ölçü vahidi :</string>
+    <string name="qeydiyyat_esas">Qeydiyyat</string>
+
+
+</resources>

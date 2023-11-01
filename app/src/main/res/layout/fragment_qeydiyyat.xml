@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/HomeBackground"
+    android:orientation="vertical"
+    tools:context=".QeydiyyatFragment">
+
+    <LinearLayout
+        android:id="@+id/HeadLinear"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/Sekil"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/stock"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.ImageView.Circle"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Anbar, satış"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/HeadLinear">
+
+        <LinearLayout
+            android:id="@+id/clBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_bottom"
+            android:orientation="vertical"
+            android:padding="10dp"
+            tools:layout_editor_absoluteY="202dp">
+
+            <TextView
+                android:id="@+id/lblTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:text="@string/qeydiyyat_esas"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TILAd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textinputlayout_background"
+                android:gravity="center"
+                android:textColorHint="@color/textColorHint"
+                app:counterEnabled="true"
+                app:counterMaxLength="25"
+                app:counterOverflowTextColor="@color/cofTextColor"
+                app:counterTextColor="@color/textColorHint"
+                app:errorEnabled="true"
+                app:helperText="@string/helperTextAdi"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/textColorHint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtAdi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittextbackground"
+                    android:hint="@string/Adiniz"
+                    android:inputType="textPersonName"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TILSoyad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textinputlayout_background"
+                android:gravity="center"
+                android:textColorHint="@color/textColorHint"
+                app:counterEnabled="true"
+                app:counterMaxLength="25"
+                app:counterOverflowTextColor="@color/cofTextColor"
+                app:counterTextColor="@color/textColorHint"
+                app:errorEnabled="true"
+                app:helperText="@string/helperTextAdi"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/textColorHint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtSoyadi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittextbackground"
+                    android:hint="@string/Soyadiniz"
+                    android:inputType="textPersonName"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TILAta_adi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textinputlayout_background"
+                android:gravity="center"
+                android:textColorHint="@color/textColorHint"
+                app:counterEnabled="true"
+                app:counterMaxLength="25"
+                app:counterOverflowTextColor="@color/cofTextColor"
+                app:counterTextColor="@color/textColorHint"
+                app:errorEnabled="true"
+                app:helperText="@string/helperTextAdi"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/textColorHint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtAta_adi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittextbackground"
+                    android:hint="@string/Ata_adi"
+                    android:inputType="textPersonName"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TIL1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/textinputlayout_background"
+                android:gravity="center"
+                android:textColorHint="@color/textColorHint"
+                app:counterEnabled="true"
+                app:counterMaxLength="25"
+                app:counterOverflowTextColor="@color/cofTextColor"
+                app:counterTextColor="@color/textColorHint"
+                app:errorEnabled="true"
+                app:helperText="@string/helperText"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/textColorHint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtUserNameQ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittextbackground"
+                    android:hint="@string/user_name"
+                    android:inputType="textPersonName"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TIL6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/textinputlayout_background"
+                android:gravity="center"
+                android:textColorHint="@color/textColorHint"
+                app:counterEnabled="true"
+                app:counterMaxLength="15"
+                app:counterOverflowTextColor="@color/cofTextColor"
+                app:counterTextColor="@color/textColorHint"
+                app:errorEnabled="true"
+                app:helperText="@string/helperTextParol"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/textColorHint"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtParolQ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittextbackground"
+                    android:hint="@string/parol"
+                    android:inputType="textPassword"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TIL2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/textinputlayout_background"
+                android:gravity="center"
+                android:textColorHint="@color/textColorHint"
+                app:counterEnabled="true"
+                app:counterMaxLength="55"
+                app:counterOverflowTextColor="@color/cofTextColor"
+                app:counterTextColor="@color/textColorHint"
+                app:errorEnabled="true"
+                app:helperText="@string/helperTextEmail"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/textColorHint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtEmailQ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittextbackground"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TIL3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/textinputlayout_background"
+                android:gravity="center"
+                android:textColorHint="@color/textColorHint"
+                app:counterEnabled="true"
+                app:counterMaxLength="13"
+                app:counterOverflowTextColor="@color/cofTextColor"
+                app:counterTextColor="@color/textColorHint"
+                app:errorEnabled="true"
+                app:helperText="@string/helperTextNomre"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/textColorHint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtPhoneQ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittextbackground"
+                    android:hint="@string/nomre"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TIL4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/textinputlayout_background"
+                android:gravity="center"
+                android:textColorHint="@color/textColorHint"
+                app:counterOverflowTextColor="@color/cofTextColor"
+                app:counterTextColor="@color/textColorHint"
+                app:errorEnabled="true"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/textColorHint">
+
+                <!--                <com.google.android.material.textfield.TextInputEditText-->
+                <!--                    android:id="@+id/txtGenderQ"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:hint="@string/cinsi"-->
+                <!--                    android:inputType="textPersonName"-->
+                <!--                    android:textSize="18sp" />-->
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="354dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/edittextbackground" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/TIL5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/textinputlayout_background"
+                android:gravity="center"
+                android:textColorHint="@color/textColorHint"
+                app:counterEnabled="true"
+                app:counterMaxLength="10"
+                app:counterOverflowTextColor="@color/cofTextColor"
+                app:counterTextColor="@color/textColorHint"
+                app:errorEnabled="true"
+                app:helperText="@string/helperTextTarix"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/textColorHint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtDateQ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/tarix"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            <Button
+                android:id="@+id/btnQeydiyyat"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/HomeBackground"
+                android:text="Qeydiyyat"
+                app:layout_constraintTop_toBottomOf="@+id/TIL6"/>
+
+            <TextView
+                android:id="@+id/txtLink"
+                android:layout_width="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:layout_height="wrap_content"
+                android:text="Daha əvvəl Qeydiyyatdan keçmişəm..." />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

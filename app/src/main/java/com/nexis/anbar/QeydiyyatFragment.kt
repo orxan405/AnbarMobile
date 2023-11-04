@@ -159,23 +159,6 @@ class QeydiyyatFragment : Fragment() {
             }
         }
 
-        /*
-        val textViewWithIcon: TextView = binding.txtAdi
-        val iconDrawable: Drawable? = ResourcesCompat.getDrawable(resources,
-            R.drawable.baseline_navigate_next_24, null) // Simgenizin adını ve uzantısını burada kullanın
-
-        // Simgeyi metinle birleştir
-        val text = "  Your Text Here" // Metnin başına boşluk ekliyoruz, böylece simge ile metin arasında boşluk olur
-        val spannable = SpannableStringBuilder(text)
-        iconDrawable?.let {
-            it.setBounds(0, 0, it.intrinsicWidth, it.intrinsicHeight)
-            val imageSpan = ImageSpan(it, ImageSpan.ALIGN_BASELINE)
-            spannable.setSpan(imageSpan, 0, 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
-        }
-
-        textViewWithIcon.text = spannable
-*/
-
         qeyd.setOnClickListener {
 
             val istifade: String = istifadeci.text.toString()

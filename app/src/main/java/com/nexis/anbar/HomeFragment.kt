@@ -87,12 +87,13 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         linkSetup()
-            //val btn = binding.btnQeydiyyat
+        //val btn = binding.btnQeydiyyat
         val btnDaxil = binding.btnLogin
 
         val database = FirebaseDatabase.getInstance()
         val login = database.getReference("tblQeydiyyat")
 
+        val myListNetice = arrayListOf<String>()
         val myList = ArrayList<String>()
         val myListPar = ArrayList<String>()
 
@@ -105,8 +106,8 @@ class HomeFragment : Fragment() {
             var ad: String = user.text.toString()
             var par: String = parol.text.toString()
 
-            val ss = "ddd"
-
+            val ss = ad + " ; " + par
+            var degerAd: String? = ""
 
             if (!ad.isEmpty() && !par.isEmpty()) {
                 login.addValueEventListener(object : ValueEventListener {
@@ -114,12 +115,22 @@ class HomeFragment : Fragment() {
                         for (i in ds.children) {
                             val deger1 = i.getValue(tblQeydiyyat::class.java)
 
-                            myList.add(deger1?.mail.toString())
-                            myListPar.add(deger1?.parolu.toString())
+                            myList.add(deger1?.mail.toString() + " ; " + deger1?.parolu.toString())
+                            myListPar.add(deger1?.soyad.toString() + " " + deger1?.ad.toString() + " " + deger1?.ata_ad.toString())
                         }
                         if (myList != null && myListPar != null) {
 
-                            if (myList.contains(ad) && myListPar.contains(par)) {
+                            if (myList.contains(ss)) {
+
+                                val indek = myList.indexOf(ss)
+
+                                val number = myListPar[indek]
+
+                                degerAd = number
+
+
+
+
                                 Toast.makeText(
                                     requireContext(),
                                     "Uğurlu əməliyyat",
@@ -129,15 +140,19 @@ class HomeFragment : Fragment() {
                                 parol.setBackgroundColor(Color.WHITE)
 
                                 val bundle = Bundle()
-                                bundle.putString("data", "$ad sistemə daxil oldu...")
+                                bundle.putString("data", "$degerAd sistemə daxil oldu...")
 
                                 findNavController().navigate(
                                     R.id.action_homeFragment2_to_homPageFragment2,
                                     bundle
                                 )
                             }
-                        }else {
-                            Toast.makeText(requireContext(), "Uğursuz əməliyyat", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(
+                                requireContext(),
+                                "Uğursuz əməliyyat",
+                                Toast.LENGTH_SHORT
+                            ).show()
                             user.setBackgroundColor(Color.RED)
                             parol.setBackgroundColor(Color.RED)
                             user.setText("")

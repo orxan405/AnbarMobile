@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.FirebaseDatabase
 import com.google.zxing.integration.android.IntentIntegrator
@@ -84,27 +85,16 @@ class MedaxilFragment : Fragment() {
 
     }
 
-    fun startBarcodeScanner() {
-        val integrator = IntentIntegrator(requireActivity())
-        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
-        integrator.setPrompt("Bir QR kod tarayın")
-        integrator.setOrientationLocked(false)
-        integrator.initiateScan()
-    }
-
-    // onActivityResult ile sonuçları işleme
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        val result: IntentResult =
-            IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-        if (result != null) {
-            if (result.contents == null) {
-                println("xeta vermedi")
-            } else {
-                val scannedData = result.contents
-
-                binding.txtBarcode.setText(scannedData.toString())
+    private val scannerResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val qrCode = result.data?.extras?.getString("qrCodeResult") ?: ""
+                binding.txtBarcode.setText(qrCode)
             }
         }
+
+    fun startBarcodeScanner() {
+        val scannerIntent = Intent(requireActivity(), ScannerActivity::class.java)
+        scannerResult.launch(scannerIntent)
     }
 }

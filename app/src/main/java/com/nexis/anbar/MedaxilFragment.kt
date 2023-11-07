@@ -15,16 +15,6 @@ import com.google.zxing.integration.android.IntentResult
 import com.nexis.anbar.data.model.tblMedaxil
 import com.nexis.anbar.databinding.FragmentMedaxilBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MedaxilFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MedaxilFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -33,14 +23,6 @@ class MedaxilFragment : Fragment() {
 
     private val gender = ArrayList<String>()
     private lateinit var veriAdap: ArrayAdapter<String>
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -33,9 +33,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="656dfc" />
-                            <entry key="outputName" value="baseline_qr_code_scanner_24" />
-                            <entry key="sourceFile" value="D:\Android kursum\Anbar" />
+                            <entry key="outputName" value="template" />
+                            <entry key="sourceFile" value="C:\Users\orxan.qurbanov\Downloads\template.svg" />
                           </map>
                         </option>
                       </PersistentState>

@@ -14,5 +14,7 @@ data class tblQeydiyyat(
     var dogumT: String? = "",
     var ad: String? = "",
     var soyad: String? = "",
-    var ata_ad: String? = ""
+    var ata_ad: String? = "",
+    var lat: String? = "",
+    var lon: String? = ""
 )

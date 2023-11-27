@@ -61,15 +61,15 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/btnKino"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:backgroundTint="@color/btnBackground"
-                android:text="Kino"
-                android:textSize="30sp"
-                android:drawableLeft="@drawable/baseline_local_movies_24"
-                android:textStyle="bold" />
+<!--            <Button-->
+<!--                android:id="@+id/btnKino"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:backgroundTint="@color/btnBackground"-->
+<!--                android:text="Kino"-->
+<!--                android:textSize="30sp"-->
+<!--                android:drawableLeft="@drawable/baseline_local_movies_24"-->
+<!--                android:textStyle="bold" />-->
 
             <Button
                 android:id="@+id/btnSatis"

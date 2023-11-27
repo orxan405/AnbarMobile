@@ -1,10 +1,13 @@
 package com.nexis.anbar
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.Drawable
+import android.location.Location
 import android.os.Bundle
 import android.text.Spannable
 import androidx.fragment.app.Fragment
@@ -30,14 +33,34 @@ import com.nexis.anbar.databinding.FragmentQeydiyyatBinding
 import java.util.Calendar
 import android.text.SpannableStringBuilder
 import android.text.style.ImageSpan
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.tasks.Task
 import com.klinker.android.link_builder.Link
 import com.klinker.android.link_builder.applyLinks
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.SupportMapFragment
+import android.Manifest
 
 class QeydiyyatFragment : Fragment() {
     lateinit var binding: FragmentQeydiyyatBinding
 
     private val gender = ArrayList<String>()
     private lateinit var veriAdap: ArrayAdapter<String>
+
+        lateinit var mapFragment: SupportMapFragment
+        lateinit var mMap: GoogleMap
+
+        private var izinKontrol = 0
+        private lateinit var flpc: FusedLocationProviderClient
+        private lateinit var locationTask: Task<Location>
+
+        var arrayloc = arrayListOf<String>()
+
+        var textViewEnlem: String? = ""
+        var textViewBoylam: String? = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -159,8 +182,10 @@ class QeydiyyatFragment : Fragment() {
             }
         }
 
-        qeyd.setOnClickListener {
 
+        flpc = LocationServices.getFusedLocationProviderClient(requireActivity())
+
+        qeyd.setOnClickListener {
             val istifade: String = istifadeci.text.toString()
             val parolu: String = parol.text.toString()
             val mail: String = emaili.text.toString()
@@ -173,13 +198,22 @@ class QeydiyyatFragment : Fragment() {
 
             if (!istifade.isEmpty() && !parolu.isEmpty() && !mail.isEmpty() && !nomre.isEmpty() && !dogumT.isEmpty() && !ad.isEmpty() && !soyad.isEmpty() && !ata_ad.isEmpty()) {
 
-//                val dk = dataKlass(istifade, parolu, mail, nomre, cins, dogumT)
-//
-//                val bundle = Bundle()
-//
-//                bundle.putParcelable("data", dk)
-//
-//                findNavController().navigate(R.id.action_qeydiyyatFragment2_to_homeFragment2, bundle)
+                val locations =  Manifest.permission.ACCESS_FINE_LOCATION
+
+                izinKontrol = ContextCompat.checkSelfPermission(requireContext(), locations)
+
+                if (izinKontrol != PackageManager.PERMISSION_GRANTED) // icaze verilmeyibse
+                {
+                    ActivityCompat.requestPermissions(
+                        requireActivity(),
+                        arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                        100
+                    )
+                } else // icaze verilibse
+                {
+                    locationTask = flpc.lastLocation
+                    konumBilgisiAl()
+                }
 
                 val database = FirebaseDatabase.getInstance()
                 val refId = database.reference.child("tblQeydiyyat")
@@ -197,6 +231,8 @@ class QeydiyyatFragment : Fragment() {
                 id.child("ad").setValue(ad)
                 id.child("soyad").setValue(soyad)
                 id.child("ata_ad").setValue(ata_ad)
+                id.child("lat").setValue(textViewEnlem)
+                id.child("lon").setValue(textViewBoylam)
 
                 //val qeydiyyat = tblQeydiyyat(oid, istifade, parolu, mail, nomre, cins, dogumT, ad, soyad, ata_ad)
 
@@ -230,6 +266,41 @@ class QeydiyyatFragment : Fragment() {
 
     private fun initViews() {
 
+    }
+
+    fun konumBilgisiAl() {
+        locationTask.addOnSuccessListener {
+            if (it != null) {
+                textViewEnlem = "Enlem : ${it.latitude}"
+                textViewBoylam = "Boylam : ${it.longitude}"
+            } else {
+                textViewEnlem = "Enlem : alinmadi"
+                textViewBoylam = "Boylam : alinmadi"
+            }
+        }
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == 100) {
+            izinKontrol =
+                ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                )
+
+            if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(requireContext(), "Icaze verildi...", Toast.LENGTH_SHORT).show()
+                locationTask = flpc.lastLocation
+                konumBilgisiAl()
+            } else {
+                Toast.makeText(requireContext(), "Icaze verilmedi...", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
 }

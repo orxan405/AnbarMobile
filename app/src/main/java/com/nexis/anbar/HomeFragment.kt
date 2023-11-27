@@ -1,6 +1,8 @@
 package com.nexis.anbar
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +14,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,8 +31,17 @@ import com.klinker.android.link_builder.Link
 import com.klinker.android.link_builder.applyLinks
 import com.nexis.anbar.Adapter.MyAdapter
 import com.nexis.anbar.data.model.tblQeydiyyat
-import com.nexis.anbar.databinding.FragmentHomPageBinding
 import com.nexis.anbar.databinding.FragmentHomeBinding
+import android.Manifest
+import android.location.Location
+import androidx.core.app.ActivityCompat
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.tasks.Task
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 class HomeFragment : Fragment() {
@@ -40,6 +52,18 @@ class HomeFragment : Fragment() {
     lateinit var dbref: DatabaseReference
     lateinit var userRecyclerview: RecyclerView
     lateinit var userArrayList: ArrayList<tblQeydiyyat>
+
+    lateinit var mapFragment: SupportMapFragment
+    lateinit var mMap: GoogleMap
+
+    private var izinKontrol = 0
+    private lateinit var flpc: FusedLocationProviderClient
+    private lateinit var locationTask: Task<Location>
+
+    var arrayloc = arrayListOf<String>()
+
+    var textViewEnlem: String? = ""
+    var textViewBoylam: String? = ""
 
 
     override fun onCreateView(
@@ -97,7 +121,7 @@ class HomeFragment : Fragment() {
         val myList = ArrayList<String>()
         val myListPar = ArrayList<String>()
 
-
+        flpc = LocationServices.getFusedLocationProviderClient(requireActivity())
 
         btnDaxil.setOnClickListener {
             val user = binding.txtEmailQ
@@ -109,7 +133,30 @@ class HomeFragment : Fragment() {
             val ss = ad + " ; " + par
             var degerAd: String? = ""
 
+
+
             if (!ad.isEmpty() && !par.isEmpty()) {
+
+                izinKontrol =
+                    ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
+
+                if (izinKontrol != PackageManager.PERMISSION_GRANTED) // icaze verilmeyibse
+                {
+                    ActivityCompat.requestPermissions(
+                        requireActivity(),
+                        arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                        100
+                    )
+                } else // icaze verilibse
+                {
+                    locationTask = flpc.lastLocation
+                    konumBilgisiAl()
+                }
+
+
+
+
+
                 login.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(ds: DataSnapshot) {
                         for (i in ds.children) {
@@ -128,7 +175,20 @@ class HomeFragment : Fragment() {
 
                                 degerAd = number
 
+                                val now = LocalDateTime.now()
+                                val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+                                val formattedDateTime = now.format(formatter)
 
+                                val database = FirebaseDatabase.getInstance()
+                                val refId = database.reference.child("tblLogin")
+                                val id = refId.push()
+
+                                id.child("oid").setValue(id.key.toString())
+                                id.child("parolu").setValue(par)
+                                id.child("mail").setValue(ad)
+                                id.child("lat").setValue(textViewEnlem)
+                                id.child("lon").setValue(textViewBoylam)
+                                id.child("girisVaxti").setValue(formattedDateTime)
 
 
                                 Toast.makeText(
@@ -213,6 +273,37 @@ class HomeFragment : Fragment() {
         })
     }
 
+
+    fun konumBilgisiAl() {
+        locationTask.addOnSuccessListener {
+            if (it != null) {
+                textViewEnlem = "Enlem : ${it.latitude}"
+                textViewBoylam = "Boylam : ${it.longitude}"
+            } else {
+                textViewEnlem = "Enlem : alinmadi"
+                textViewBoylam = "Boylam : alinmadi"
+            }
+        }
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == 100) {
+            izinKontrol = ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION)
+
+            if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(requireContext(), "Icaze verildi...", Toast.LENGTH_SHORT).show()
+                locationTask = flpc.lastLocation
+                konumBilgisiAl()
+            } else {
+                Toast.makeText(requireContext(), "Icaze verilmedi...", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
 }
 

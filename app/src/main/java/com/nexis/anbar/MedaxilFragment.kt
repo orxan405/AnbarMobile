@@ -23,7 +23,9 @@ class MedaxilFragment : Fragment() {
     lateinit var binding: FragmentMedaxilBinding
 
     private val gender = ArrayList<String>()
+    private val olkeAdi = ArrayList<String>()
     private lateinit var veriAdap: ArrayAdapter<String>
+    private lateinit var veriAdapOlkeAdi: ArrayAdapter<String>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,8 +38,29 @@ class MedaxilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        gender.add("Kişi")
-        gender.add("Qadın")
+        gender.add("Ədəd")
+        olkeAdi.add("Azərbaycan")
+        olkeAdi.add("Türkiyə")
+        olkeAdi.add("ABŞ")
+        olkeAdi.add("Rusiya")
+        olkeAdi.add("Çin")
+        olkeAdi.add("Almaniya")
+        olkeAdi.add("Pakistan")
+        olkeAdi.add("Hindistan")
+        olkeAdi.add("Fransa")
+        olkeAdi.add("İtaliya")
+        olkeAdi.add("İngiltərə")
+        olkeAdi.add("Gürcüstan")
+        olkeAdi.add("Qazaxstan")
+
+        veriAdapOlkeAdi = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            android.R.id.text1,
+            olkeAdi
+        )
+
+        binding.spinnerOlkeAdi.adapter = veriAdapOlkeAdi
 
         veriAdap = ArrayAdapter(
             requireContext(),
@@ -80,6 +103,7 @@ class MedaxilFragment : Fragment() {
         }
 
         binding.IVQRScanner.setOnClickListener {
+            binding.txtBarcode.setText("")
             startBarcodeScanner()
         }
 

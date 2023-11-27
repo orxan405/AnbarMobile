@@ -52,7 +52,7 @@ class HomPageFragment : Fragment() {
         val btn: Button = view.findViewById(R.id.btnCixis)
         val btnQaliq: Button = view.findViewById(R.id.btnQaliq)
         val btnMedaxil: Button = binding.btnMedaxil
-        val btnKino: Button = binding.btnKino
+        //val btnKino: Button = binding.btnKino
         val btnqeyd: Button = binding.btnQeydiyyatList
         val ad: TextView = view.findViewById(R.id.txtBasliq)
 
@@ -80,12 +80,12 @@ class HomPageFragment : Fragment() {
             )
         }
 
-        btnKino.setOnClickListener {
-            Toast.makeText(requireContext(), "Uğurlu əməliyyat", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(
-                R.id.action_homPageFragment2_to_kinoFragment
-            )
-        }
+//        btnKino.setOnClickListener {
+//            Toast.makeText(requireContext(), "Uğurlu əməliyyat", Toast.LENGTH_SHORT).show()
+//            findNavController().navigate(
+//                R.id.action_homPageFragment2_to_kinoFragment
+//            )
+//        }
 
         btnqeyd.setOnClickListener {
             Toast.makeText(requireContext(), "Uğurlu əməliyyat", Toast.LENGTH_SHORT).show()
